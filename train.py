@@ -9,7 +9,7 @@ from data_utils import load_data
 from evaluate import evaluate_classification, evaluate_clustering
 from model_utils import get_model
 
-# 1. Classification experiments
+
 
 
 def run_classification(dataset: str, models: list[str], dump_best: bool = False):
@@ -28,13 +28,13 @@ def run_classification(dataset: str, models: list[str], dump_best: bool = False)
         if dump_best and acc > best_acc:
             best_acc = acc
             best_model = model
-    # dump best model if requested
+  
     if dump_best and best_model is not None:
         joblib.dump(best_model, "best_model.pkl")
         print(f"Saved best_model.pkl with accuracy={best_acc:.3f}")
 
 
-# 2. Clustering on BRCA (attempt OpenML, fallback to builtin Breast Cancer)
+
 
 
 def run_clustering():
@@ -52,7 +52,7 @@ def run_clustering():
 
 
 if __name__ == "__main__":
-    # run and dump best model on breast_cancer
+  
     run_classification("wine", ["logistic", "svm", "tree"], dump_best=False)
     run_classification(
         "breast_cancer", ["logistic", "svm", "tree", "forest"], dump_best=True

@@ -7,7 +7,7 @@ from sklearn.metrics import (
     silhouette_score,
 )
 
-# Classification metrics
+
 
 
 def evaluate_classification(model, X_test, y_test):
@@ -18,7 +18,7 @@ def evaluate_classification(model, X_test, y_test):
     print(confusion_matrix(y_test, y_pred))
 
 
-# Clustering metrics & plots
+
 
 
 def evaluate_clustering(X, labels, title="Clustering"):  # silhouette + PCA scatter

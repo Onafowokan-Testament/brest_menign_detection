@@ -4,14 +4,14 @@ from data_utils import load_data
 from model_utils import get_model
 import numpy as np
 
-# Load pre-trained model (train.py should dump best model, e.g. Random Forest)
+
 MODEL_PATH = 'best_model.pkl'
 model = joblib.load(MODEL_PATH)
 
 st.title("Breast Cancer Prediction")
 st.write("Enter patient features below:")
 
-# Get feature names and defaults
+
 _, _, _, _, feature_names = load_data('breast_cancer')
 inputs = []
 for name in feature_names:
