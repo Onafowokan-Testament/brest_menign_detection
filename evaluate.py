@@ -1,11 +1,14 @@
-from sklearn.metrics import (
-    accuracy_score, classification_report, confusion_matrix,
-    silhouette_score
-)
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
+from sklearn.metrics import (
+    accuracy_score,
+    classification_report,
+    confusion_matrix,
+    silhouette_score,
+)
 
 # Classification metrics
+
 
 def evaluate_classification(model, X_test, y_test):
     y_pred = model.predict(X_test)
@@ -14,7 +17,9 @@ def evaluate_classification(model, X_test, y_test):
     print(classification_report(y_test, y_pred))
     print(confusion_matrix(y_test, y_pred))
 
+
 # Clustering metrics & plots
+
 
 def evaluate_clustering(X, labels, title="Clustering"):  # silhouette + PCA scatter
     score = silhouette_score(X, labels)
@@ -22,6 +27,6 @@ def evaluate_clustering(X, labels, title="Clustering"):  # silhouette + PCA scat
     pca = PCA(2)
     proj = pca.fit_transform(X)
     plt.figure()
-    plt.scatter(proj[:,0], proj[:,1], c=labels)
+    plt.scatter(proj[:, 0], proj[:, 1], c=labels)
     plt.title(f"{title} (silhouette={score:.3f})")
     plt.show()
